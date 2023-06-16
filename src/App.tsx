@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { routes } from "./routes/routes";
+import Header from './components/shared/Header/Header';
+import Footer from './components/shared/Footer/Footer';
+import { useState } from 'react';
+import SearchModal from './components/containers/SearchModal/SearchModal';
 
 function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Header modalOpen={modalOpen} setModalOpen={setModalOpen} />
+        <SearchModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+        <Routes>
+          {
+              routes?.map((route) => {
+                return <Route key={route.index} path={route?.path} element={<route.component />}/>
+              })
+            }
+        </Routes>
+        <Footer />
+      </Router>
+    </>
   );
 }
 

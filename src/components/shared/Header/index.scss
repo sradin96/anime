@@ -1,0 +1,48 @@
+@import '../../../styles/variables.scss';
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $dark2;
+    padding: 20px 0;
+    z-index: 100;
+}
+
+.header__holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__home {
+    color: $white;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.header__list {
+    display: flex;
+    align-items: center;
+}
+
+.header__item {
+    margin: 0 10px;
+}
+
+.header__link {
+    font-size: 18px;
+    color: $light;
+}
+
+.header__search {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+
+    svg {
+        fill: $white;
+        font-size: 32px;
+    }
+}

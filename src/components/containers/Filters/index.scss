@@ -1,0 +1,50 @@
+@import '../../../styles/variables.scss';
+
+.filters {
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.filters__block {
+    width: 15%;
+    background-color: $dark2;
+    margin-left: 30px;
+    height: 45px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+}
+
+.filters__block--search {
+    width: 30%;
+}
+
+.filters__search {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: $light;
+    font-weight: 700;
+}
+
+.filters__search-icon {
+    fill: $light;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.filters__select {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: $light;
+    font-size: 18px;
+    font-weight: 700;
+}

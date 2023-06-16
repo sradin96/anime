@@ -1,0 +1,142 @@
+@import '../../../styles/variables.scss';
+
+.popular {
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.popular__holder {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.popular__title {
+    font-size: 28px;
+    color: $light;
+    margin-bottom: 30px;
+}
+
+.popular__card {
+    width: calc(100% / 5 - 160px / 5);
+    margin-right: 40px;
+    margin-bottom: 40px;
+    position: relative;
+
+    &:nth-child(5n) {
+        margin-right: 0;
+    }
+
+    &:is(.right) {
+        .popular__card-popup {
+            left: -20px;
+            transform: translateX(-100%);
+        }
+    }
+}
+
+.popular__card-img-holder {
+    width: 100%;
+    height: 260px;
+    margin-bottom: 10px;
+}
+
+.popular__card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.popular__card-title {
+    color: $light2;
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.popular__btn-holder {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popular__loading {
+    font-size: 20px;
+    color: $white;
+    text-align: center;
+}
+
+.popular__card-popup {
+    position: absolute;
+    right: -20px;
+    top: 20px;
+    transform: translateX(100%);
+    background-color: $dark2;
+    z-index: 2;
+    border-radius: 12px;
+    box-shadow: 5px 3px 6px $dark2;
+    padding: 20px;
+    min-width: 260px;
+}
+
+.popular__card-popup-rank {
+    color: $light;
+    margin-bottom: 5px;
+}
+
+.popular__card-popup-date {
+    color: $red;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.popular__card-popup-holder {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.popular__card-popup-text {
+    color: $light2;
+    font-weight: 700;
+    font-size: 14px;
+    padding-right: 15px;
+    position: relative;
+    margin-right: 10px;
+    display: block;
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5px;
+        height: 5px;
+        background-color: $light;
+        border-radius: 50%;
+    }
+}
+
+.popular__card-popup-episodes {
+    color: $light2;
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+}
+
+.popular__card-popup-tags {
+    display: flex;
+    align-items: center;
+}
+
+.popular__card-popup-tag {
+    padding: 5px 12px;
+    background-color: $red;
+    margin-right: 5px;
+    font-size: 12px;
+    border-radius: 100px;
+    color: $dark2;
+    font-weight: 700;
+}
