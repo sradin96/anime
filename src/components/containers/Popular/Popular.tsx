@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./index.scss";
 import { Anime } from "../../../graphql/getAnimes";
 import POPULAR_ANIME_QUERY from "../../../graphql/getPopular";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Popular = () => {
   const [perPage, setPerPage] = useState(10);
@@ -21,7 +21,7 @@ const Popular = () => {
   }, [data]);
 
   const handleLoadMore = () => {
-    setPerPage(prevPerPage => prevPerPage + 10); // Update perPage state first
+    setPerPage(prevPerPage => prevPerPage + 10);
   };
 
   const [media, setMedia] = useState<Anime[]>([]);
@@ -51,7 +51,7 @@ const Popular = () => {
           <div className="popular__holder">
             {media.map((anime: any, index: number) => {
               return (
-                <NavLink to={`anime/${anime.id}`} className={`popular__card ${popupDirection}`}
+                <Link to={`anime/${anime.id}`} className={`popular__card ${popupDirection}`}
                 key={index}
                 onMouseOver={(event) => handleCardPopup(index, event)}
                 onMouseLeave={(event) => handleCardPopup(-1, event)}
@@ -81,7 +81,7 @@ const Popular = () => {
                   </div>
                   )
                 }
-              </NavLink>
+              </Link>
               )
             })}
           </div>

@@ -1,1 +1,31 @@
 @import '../../../styles/variables.scss';
+
+.anime-card {
+    width: calc(100% / 5 - 160px / 5);
+    margin-right: 40px;
+    margin-bottom: 40px;
+    position: relative;
+
+    &:nth-child(5n) {
+        margin-right: 0;
+    }
+}
+
+.anime-card__img-holder {
+    width: 100%;
+    height: 260px;
+    margin-bottom: 10px;
+}
+
+.anime-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.anime-card__title {
+    color: $light2;
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+}
