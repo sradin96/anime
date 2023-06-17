@@ -4,7 +4,7 @@ import "./index.scss";
 import { NavLink } from "react-router-dom";
 
 const Banner = () => {
-  const { data }: any = useQuery(SPECIFIC_QUERY, {
+  const { data } = useQuery(SPECIFIC_QUERY, {
     variables: {
       id: 1,
     },
@@ -23,7 +23,7 @@ const Banner = () => {
             </h2>
             <p className="banner__text">{data?.Media.description}</p>
             <ul className="banner__list">
-              {data?.Media.genres.map((genre: any, index: number) => {
+              {data?.Media.genres.map((genre: string, index: number) => {
                 return (
                   <li className="banner__item" key={index}>
                     <span className="banner__tag">

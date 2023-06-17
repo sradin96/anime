@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function Filters({ inputValue, setInputValue, handleSearchInput }: any) {
     const query = new URLSearchParams(window.location.search);
-    const single: any = query.get('search');
+    const single: string = query.get('search')!;
     const [searchValue, setSearchValue] = useState(
         single ?? ''
     );
@@ -20,7 +20,7 @@ function Filters({ inputValue, setInputValue, handleSearchInput }: any) {
         <select className="filters__select" name="genres" id="genres">
             <option value="Any">Any</option>
             {
-                genres.map((genre: any, index: number) => {
+                genres.map((genre, index: number) => {
                     return <option value={genre.genre} key={index}>{genre.genre}</option>
                 })
             }
@@ -30,7 +30,7 @@ function Filters({ inputValue, setInputValue, handleSearchInput }: any) {
       <select className="filters__select" name="years" id="years">
             <option value="Any">Any</option>
             {
-                years.map((year: any, index: number) => {
+                years.map((year, index: number) => {
                     return <option value={year.year} key={index}>{year.year}</option>
                 })
             }

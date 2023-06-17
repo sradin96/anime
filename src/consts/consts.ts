@@ -1,4 +1,6 @@
-export const years = [
+import { Genres, Year } from "../types/types"
+
+export const years: Year[] = [
     { year: '2024' },
     { year: '2023' },
     { year: '2022' },
@@ -36,7 +38,7 @@ export const years = [
     { year: '1990' },
 ]
 
-export const genres = [
+export const genres: Genres[] = [
     { genre: 'Adventure' },
     { genre: 'Comedy' },
     { genre: 'Sci-Fi' },

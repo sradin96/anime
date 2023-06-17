@@ -2,11 +2,12 @@ import { useQuery } from '@apollo/client';
 import { useNavigate, useParams } from 'react-router-dom';
 import SPECIFIC_QUERY from '../../../graphql/getSpecific';
 import "./index.scss";
+import { Genres } from '../../../types/types';
 
 const AnimeDetail = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const { data }: any = useQuery(SPECIFIC_QUERY, {
+    const { data } = useQuery(SPECIFIC_QUERY, {
         variables: {
             id: id,
         },
@@ -31,7 +32,7 @@ const AnimeDetail = () => {
                 </div>
                 <div className="anime-detail__tags">
                     {
-                        data?.Media.genres.map((genre: any, index: number) => {
+                        data?.Media.genres.map((genre: string, index: number) => {
                             return <span className="anime-detail__tag tag" key={index}>{genre}</span>
                         })
                     }

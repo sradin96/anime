@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./index.scss";
+import { Anime } from "../../../types/types";
 
-const AnimeCard = ({ anime }: any) => {
+interface AnimeProp {
+  anime: Anime
+}
+
+const AnimeCard = ({ anime }: AnimeProp) => {
   return (
     <Link to="" className="anime-card">
       <div className="anime-card__img-holder">

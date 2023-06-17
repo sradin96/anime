@@ -6,7 +6,7 @@ import SPECIFIC_MANGA_QUERY from "../../../graphql/getSpecificManga";
 const MangaDetail = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const { data }: any = useQuery(SPECIFIC_MANGA_QUERY, {
+    const { data } = useQuery(SPECIFIC_MANGA_QUERY, {
         variables: {
           id: id,
         },
@@ -31,7 +31,7 @@ const MangaDetail = () => {
                 </div>
                 <div className="anime-detail__tags">
                     {
-                        data?.Media.genres.map((genre: any, index: number) => {
+                        data?.Media.genres.map((genre: string, index: number) => {
                             return <span className="anime-detail__tag tag" key={index}>{genre}</span>
                         })
                     }

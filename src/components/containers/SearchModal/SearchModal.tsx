@@ -6,8 +6,14 @@ import { useState } from "react";
 import ANIME_QUERY from "../../../graphql/getAnimes";
 import { useLazyQuery } from "@apollo/client";
 import MANGA_QUERY from "../../../graphql/getMangas";
+import { Anime } from "../../../types/types";
 
-function SearchModal({ modalOpen, setModalOpen }: any) {
+interface SearchModalProps {
+    modalOpen: boolean;
+    setModalOpen: (modalOpen: boolean) => void;
+  }
+
+function SearchModal({ modalOpen, setModalOpen }: SearchModalProps) {
     const [inputValue, setInputValue] = useState('');
     const [searchAnime, { loading: animeLoading, error: animeError, data: animeData }] = useLazyQuery(ANIME_QUERY);
     const [searchManga, { loading: mangaLoading, error: mangaError, data: mangaData }] = useLazyQuery(MANGA_QUERY);
@@ -23,7 +29,7 @@ function SearchModal({ modalOpen, setModalOpen }: any) {
         setInputValue('')
     }
 
-    const handleSearchInput = (e: any) => {
+    const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
         searchAnime({
             variables: {
@@ -77,7 +83,7 @@ function SearchModal({ modalOpen, setModalOpen }: any) {
                     <div className="search-popup__result">
                         {animeData && (
                         <ul className="search-popup__result-list">
-                            {animeData.Page.media.map((anime: any) => (
+                            {animeData.Page.media.map((anime: Anime) => (
                             <li className="search-popup__result-item" key={anime.id}>
                                 <NavLink onClick={handleSearchModal} to={`/anime/${anime.id}`} className="search-popup__result-block">
                                     <div className="search-popup__result-img-block">
@@ -97,7 +103,7 @@ function SearchModal({ modalOpen, setModalOpen }: any) {
                     <div className="search-popup__result">
                         {mangaData && (
                         <ul>
-                            {mangaData.Page.media.map((manga: any) => (
+                            {mangaData.Page.media.map((manga: Anime) => (
                             <li key={manga.id}>
                                 <NavLink onClick={handleSearchModal} to={`/manga/${manga.id}`} className="search-popup__result-block">
                                     <div className="search-popup__result-img-block">

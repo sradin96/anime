@@ -1,9 +1,9 @@
 import { useQuery } from "@apollo/client";
 import { useState, useEffect } from "react";
 import "./index.scss";
-import { Anime } from "../../../graphql/getAnimes";
 import POPULAR_ANIME_QUERY from "../../../graphql/getPopular";
 import { Link, NavLink } from "react-router-dom";
+import { Anime } from "../../../types/types";
 
 const Popular = () => {
   const [perPage, setPerPage] = useState(10);
@@ -29,7 +29,7 @@ const Popular = () => {
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number>(-1);
   const [popupDirection, setPopupDirection] = useState<string>('')
 
-  const handleCardPopup = (index: number, event: any) => {
+  const handleCardPopup = (index: number, event: React.MouseEvent) => {
     setHoveredCardIndex(index);
 
     const cardRect = event.currentTarget.getBoundingClientRect();
@@ -49,7 +49,7 @@ const Popular = () => {
         <div className="wrap">
           <h2 className="popular__title">Trending Now</h2>
           <div className="popular__holder">
-            {media.map((anime: any, index: number) => {
+            {media.map((anime: Anime, index: number) => {
               return (
                 <Link to={`anime/${anime.id}`} className={`popular__card ${popupDirection}`}
                 key={index}
@@ -72,7 +72,7 @@ const Popular = () => {
                       <span className="popular__card-popup-episodes">{anime.episodes} episodes</span>
                     </div>
                     <div className="popular__card-popup-tags tags">{
-                      anime.genres.slice(0, 3).map((genre: any, index: number) => {
+                      anime.genres.slice(0, 3).map((genre: string, index: number) => {
                         return <span className="popular__card-popup-tag" key={index}>
                           {genre}
                         </span>
